@@ -14,6 +14,7 @@ use tokio_util::sync::CancellationToken;
 
 use dprint_core::plugins::process::start_parent_process_checker_task;
 
+mod language_server;
 mod messages;
 
 use crate::arg_parser::CliArgs;
@@ -31,6 +32,8 @@ use crate::utils::Semaphore;
 
 use self::messages::EditorMessage;
 use self::messages::EditorMessageBody;
+
+pub use language_server::run_language_server;
 
 pub async fn output_editor_info<TEnvironment: Environment>(
   args: &CliArgs,
